@@ -1,9 +1,13 @@
 # Trezormat
 Automat ve kterém si můžete koupit Bitcoin LN
+> [!IMPORTANT]  
+> Projekt ještě nění dokončen! -> Zde je jen pár testovacích kódů pro jednotlivá zařízení.
+
+
 ![acceptor](trezormat.jpeg)
 
 ## NV10-USB-plus
-
+protokol POS
  * Acceptor NV10  - Arduino Mega 2560
  * NV10 PIN 1 (RS232) Tx <-> Arduino Serial3 Rx 15
  * NV10 PIN 5 (RS232) Rx <-> Arduino Serial3 Tx 14
