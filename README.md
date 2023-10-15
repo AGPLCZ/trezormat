@@ -1,5 +1,6 @@
 # Trezormat
-Automat ve kterém si můžete koupit Bitcoin LN -  Nejedná se o kopii podobných projektů jako je Bleskomat a fossa, tyto projekty jsem objevil až po naprogramování, bohužel. Můj Trezormat je mnohem jednoduší a amatérský. Jeho výhoda je jednoduchost, jelikož neumím programovat měl by kódy pochopit téměř každý. Tím pádem je snadná i replikovatelnost.  
+Trezormat je automat, skrze který si můžete pořídit Bitcoin prostřednictvím Lightning Network (LN). Ačkoliv se podobá projektům jako Bleskomat či Fossa, byl vyvinut nezávisle, s nimi jsem se seznámil až po jeho dokončení. Trezormat je zaměřen na jednoduchost a přístupnost. Vzhledem k tomu, že nejsem profesionální programátor a jsem úplný začátečník, díky tomu je jeho replikace snadná a rychlá.
+
 > [!IMPORTANT]  
 > Projekt ještě nění dokončen! -> Zde je jen pár testovacích kódů pro jednotlivá zařízení, ještě to dávám celé dokupy. 
 
