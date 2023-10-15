@@ -1,4 +1,6 @@
-# trezormat
+# Trezormat
+Automat ve kterém si můžete koupit Bitcoin LN
+![acceptor](trezormat.jpeg)
 
 ## NV10-USB-plus
 
