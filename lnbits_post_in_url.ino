@@ -5,12 +5,22 @@
 
 const char* ssid = "ag";
 const char* password = "dekujizawifi";
-
 const char* host = "wallet.paralelnipolis.cz";
 const int httpsPort = 443;
-const char* apiKey = "*****************************";
+const char* apiKey = "*********************************";
 
 WiFiSSLClient client;
+
+String extractLNURLFromResponse(String responseBody) {
+  DynamicJsonDocument doc(2048);
+  deserializeJson(doc, responseBody);
+
+  if (doc.containsKey("lnurl")) {
+    return doc["lnurl"].as<String>();
+  }
+
+  return "LNURL nebyl nalezen.";
+}
 
 String createWithdrawLink() {
   if (!client.connect(host, httpsPort)) {
@@ -28,7 +38,7 @@ String createWithdrawLink() {
   doc["webhook_headers"] = "Content-Type: application/json";
   doc["webhook_body"] = "{\"amount\": 100}";
   doc["custom_url"] = "https://dobrodruzi.cz/withdraw/poslano.php";
-
+  
   String json;
   serializeJson(doc, json);
 
@@ -41,11 +51,6 @@ String createWithdrawLink() {
 
   client.print(request);
 
-  // Čtení odpovědi
-  String statusLine = client.readStringUntil('\n');
-  statusLine.trim();
-  Serial.println("Stavový kód HTTP: " + statusLine);
-
   while (client.connected()) {
     String line = client.readStringUntil('\n');
     if (line.length() <= 2) { // Konec hlaviček (prázdný řádek)
@@ -56,20 +61,9 @@ String createWithdrawLink() {
 
   String responseBody = client.readString();
   Serial.println("Tělo odpovědi:");
-  Serial.println(responseBody);
+  Serial.println(responseBody); // Vypíše tělo odpovědi
 
-  // Kontrola, zda je stavový kód 201 (což znamená úspěch)
-  if (statusLine.endsWith("201 Created")) {
-    DynamicJsonDocument responseDoc(2048);
-    deserializeJson(responseDoc, responseBody);
-    if (responseDoc.containsKey("lnurl")) {
-      return String("LN URL: ") + responseDoc["lnurl"].as<String>();
-    } else {
-      return "Nepodařilo se najít LN URL v odpovědi.";
-    }
-  }
-
-  return "Neočekávaná odpověď od serveru.";
+  return extractLNURLFromResponse(responseBody);
 }
 
 void setup() {
@@ -81,10 +75,11 @@ void setup() {
     delay(1000);
     Serial.println("Připojování k WiFi...");
   }
-
+  
   Serial.println("Připojeno k WiFi!");
+
   String lnUrl = createWithdrawLink();
-  Serial.println(lnUrl);
+  Serial.println("LN URL: " + lnUrl);
 }
 
 void loop() {
