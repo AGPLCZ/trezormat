@@ -1,5 +1,6 @@
-#include <WiFi.h>
-#include <WiFiClientSecure.h>
+#include "WiFiS3.h"
+#include "WiFiSSLClient.h"
+#include "IPAddress.h"
 #include <ArduinoJson.h>
 
 const char* ssid = "VAŠE_SSID";
@@ -9,9 +10,9 @@ const char* host = "wallet.paralelnipolis.cz";
 const int httpsPort = 443;
 const char* apiKey = "e***********************6";
 
-String createWithdrawLink() {
-  WiFiClientSecure client;
+WiFiSSLClient client;
 
+String createWithdrawLink() {
   if (!client.connect(host, httpsPort)) {
     return "Připojení se nezdařilo!";
   }
