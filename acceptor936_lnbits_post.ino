@@ -12,7 +12,7 @@ WiFiSSLClient client;
 
 // Proměnné pro mincovník
 const int coinDetectionPin = 2;
-const int requiredAmount = 75;
+const int requiredAmount = 5; // minimální částka
 volatile long totalInterruptsCount = 0;
 unsigned long currentBalance = 0;
 unsigned long lastInterruptTime = 0;
@@ -75,15 +75,15 @@ String createWithdrawLink() {
 
   DynamicJsonDocument doc(1024);
   doc["title"] = "Můj automatický odkaz";
-  doc["min_withdrawable"] = 20;
-  doc["max_withdrawable"] = 20;
+doc["min_withdrawable"] = currentBalance;
+doc["max_withdrawable"] = currentBalance;
   doc["uses"] = 1;
   doc["wait_time"] = 60;
   doc["is_unique"] = true;
-  doc["webhook_url"] = "https://dobrodruzi.cz/withdraw/index.php";
+  doc["webhook_url"] = "https://dobrodruzi.cz/";
   doc["webhook_headers"] = "Content-Type: application/json";
   doc["webhook_body"] = "{\"amount\": 100}";
-  doc["custom_url"] = "https://dobrodruzi.cz/withdraw/poslano.php";
+  doc["custom_url"] = "https://dobrodruzi.cz/";
   
   String json;
   serializeJson(doc, json);
