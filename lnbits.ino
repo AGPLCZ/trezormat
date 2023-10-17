@@ -3,8 +3,8 @@
 #include "IPAddress.h"
 #include <ArduinoJson.h>
 
-const char* ssid = "VAŠE_SSID";
-const char* password = "VAŠE_HESLO";
+const char* ssid = "ag";
+const char* password = "dekujizawifi";
 
 const char* host = "wallet.paralelnipolis.cz";
 const int httpsPort = 443;
@@ -42,15 +42,16 @@ String createWithdrawLink() {
   client.print(request);
 
   String response = "";
-  while (client.connected()) {
-    response = client.readStringUntil('\n');
-    if (response.startsWith("HTTP/1.1 201")) {
-      DynamicJsonDocument responseDoc(1024);
-      deserializeJson(responseDoc, client);
-      return responseDoc["lnurl"].as<String>();
-    }
-    // Zde můžete přidat další kontroly stavových kódů HTTP podle potřeby
+ while (client.connected()) {
+  String line = client.readStringUntil('\n');
+  if (line.length() <= 2) { // Konec hlaviček (prázdný řádek)
+    break;
   }
+  Serial.println(line); // Vypíše hlavičky
+}
+String responseBody = client.readString();
+Serial.println(responseBody); // Vypíše tělo odpovědi
+
 
   return "Neočekávaná odpověď od serveru.";
 }
@@ -66,7 +67,10 @@ void setup() {
   }
   
   Serial.println("Připojeno k WiFi!");
-  
+  String fullResponse = client.readString();
+Serial.println("Odpověď od serveru:");
+Serial.println(fullResponse);
+
   String lnUrl = createWithdrawLink();
   Serial.println(lnUrl);
 }
