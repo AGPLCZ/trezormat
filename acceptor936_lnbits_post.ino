@@ -7,7 +7,7 @@ const char* ssid = "ag";
 const char* password = "dekujizawifi";
 const char* host = "wallet.paralelnipolis.cz";
 const int httpsPort = 443;
-const char* apiKey = "ec8f0243ba9f44dbb7f720e8568b4366";
+const char* apiKey = "**************";
 WiFiSSLClient client;
 
 // Proměnné pro mincovník
