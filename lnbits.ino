@@ -8,7 +8,7 @@ const char* password = "dekujizawifi";
 
 const char* host = "wallet.paralelnipolis.cz";
 const int httpsPort = 443;
-const char* apiKey = "e***********************6";
+const char* apiKey = "*****************************";
 
 WiFiSSLClient client;
 
@@ -28,7 +28,7 @@ String createWithdrawLink() {
   doc["webhook_headers"] = "Content-Type: application/json";
   doc["webhook_body"] = "{\"amount\": 100}";
   doc["custom_url"] = "https://dobrodruzi.cz/withdraw/poslano.php";
-  
+
   String json;
   serializeJson(doc, json);
 
@@ -41,17 +41,33 @@ String createWithdrawLink() {
 
   client.print(request);
 
-  String response = "";
- while (client.connected()) {
-  String line = client.readStringUntil('\n');
-  if (line.length() <= 2) { // Konec hlaviček (prázdný řádek)
-    break;
-  }
-  Serial.println(line); // Vypíše hlavičky
-}
-String responseBody = client.readString();
-Serial.println(responseBody); // Vypíše tělo odpovědi
+  // Čtení odpovědi
+  String statusLine = client.readStringUntil('\n');
+  statusLine.trim();
+  Serial.println("Stavový kód HTTP: " + statusLine);
 
+  while (client.connected()) {
+    String line = client.readStringUntil('\n');
+    if (line.length() <= 2) { // Konec hlaviček (prázdný řádek)
+      break;
+    }
+    Serial.println(line); // Vypíše hlavičky
+  }
+
+  String responseBody = client.readString();
+  Serial.println("Tělo odpovědi:");
+  Serial.println(responseBody);
+
+  // Kontrola, zda je stavový kód 201 (což znamená úspěch)
+  if (statusLine.endsWith("201 Created")) {
+    DynamicJsonDocument responseDoc(2048);
+    deserializeJson(responseDoc, responseBody);
+    if (responseDoc.containsKey("lnurl")) {
+      return String("LN URL: ") + responseDoc["lnurl"].as<String>();
+    } else {
+      return "Nepodařilo se najít LN URL v odpovědi.";
+    }
+  }
 
   return "Neočekávaná odpověď od serveru.";
 }
@@ -65,12 +81,8 @@ void setup() {
     delay(1000);
     Serial.println("Připojování k WiFi...");
   }
-  
-  Serial.println("Připojeno k WiFi!");
-  String fullResponse = client.readString();
-Serial.println("Odpověď od serveru:");
-Serial.println(fullResponse);
 
+  Serial.println("Připojeno k WiFi!");
   String lnUrl = createWithdrawLink();
   Serial.println(lnUrl);
 }
