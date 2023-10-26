@@ -16,7 +16,7 @@
  */
 
 int credit = 0;
-int max = 700;
+int maxV = 700;
 byte accepted = 0;
 
 void bill(int banknoteValue) {
@@ -33,7 +33,7 @@ void bill(int banknoteValue) {
 }
 
 void take(int banknoteValue) {
-  if ((credit + banknoteValue) <= max) {
+  if ((credit + banknoteValue) <= maxV) {
     NoteAcceptor.write(172);  // Přijmout
   } else {
     NoteAcceptor.write(173);  // Vrátit
