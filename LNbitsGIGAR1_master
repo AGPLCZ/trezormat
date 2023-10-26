@@ -1,14 +1,35 @@
+#include <SPI.h>
 #include <WiFi.h>
-#include <WiFiClientSecure.h>
-#include <ArduinoJson.h>
+#include <WiFiClient.h>
+#include <WiFiSSLClient.h>
+#include <WiFiServer.h>
+#include <WiFiUdp.h>
+#include <ArduinoJson.h>  // Přidat tuto knihovnu pro práci s JSON
 
 const char* ssid = "ag";
 const char* password = "dekujizawifi";
-const char* host = "wallet.paralelnipolis.cz";
+const char* host = "legend.lnbits.com";
 const int httpsPort = 443;
-const char* apiKey = "*********************************";
+const char* apiKey = "5f9940a3227d4df0904db50603e4d041";
+WiFiSSLClient client;
 
-WiFiClientSecure client;
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Připojování k WiFi...");
+  }
+  Serial.println("Připojeno k WiFi!");
+}
+
+void loop() {
+  // zde můžete přidat kód pro periodickou aktualizaci nebo jinou funkcionalitu
+  String lnUrl = createWithdrawLink();
+  Serial.println("LN URL: " + lnUrl);
+  delay(60000);  // Počkejte 1 minutu před dalším požadavkem
+}
 
 String extractLNURLFromResponse(String responseBody) {
   DynamicJsonDocument doc(2048);
@@ -28,15 +49,11 @@ String createWithdrawLink() {
 
   DynamicJsonDocument doc(1024);
   doc["title"] = "Můj automatický odkaz";
-  doc["min_withdrawable"] = 20;
-  doc["max_withdrawable"] = 20;
+  doc["min_withdrawable"] = "1";
+  doc["max_withdrawable"] = "1000000";
   doc["uses"] = 1;
   doc["wait_time"] = 60;
   doc["is_unique"] = true;
-  doc["webhook_url"] = "https://dobrodruzi.cz/withdraw/index.php";
-  doc["webhook_headers"] = "Content-Type: application/json";
-  doc["webhook_body"] = "{\"amount\": 100}";
-  doc["custom_url"] = "https://dobrodruzi.cz/withdraw/poslano.php";
   
   String json;
   serializeJson(doc, json);
@@ -63,24 +80,4 @@ String createWithdrawLink() {
   Serial.println(responseBody); // Vypíše tělo odpovědi
 
   return extractLNURLFromResponse(responseBody);
-}
-
-void setup() {
-  Serial.begin(115200);
-
-  WiFi.begin(ssid, password);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.println("Připojování k WiFi...");
-  }
-  
-  Serial.println("Připojeno k WiFi!");
-
-  String lnUrl = createWithdrawLink();
-  Serial.println("LN URL: " + lnUrl);
-}
-
-void loop() {
-  // zde můžete přidat kód pro periodickou aktualizaci nebo jinou funkcionalitu
 }
