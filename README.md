@@ -5,6 +5,12 @@ Trezormat je automat, skrze který si můžete pořídit Bitcoin prostřednictv�
 > Projekt ještě nění dokončen! -> Zde je jen pár testovacích kódů pro jednotlivá zařízení, ještě to dávám celé dokupy. 
 
 
+# Externí návody
+- https://randomnerdtutorials.com/nextion-display-with-arduino-getting-started/
+- 
+
+
+
 ![acceptor](trezormat.jpeg)
 
 ## NV10-USB-plus
