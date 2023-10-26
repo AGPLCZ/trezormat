@@ -7,6 +7,7 @@ Trezormat je automat, skrze který si můžete pořídit Bitcoin prostřednictv�
 
 # Externí návody
 - https://randomnerdtutorials.com/nextion-display-with-arduino-getting-started/
+- https://docs.arduino.cc/tutorials/giga-r1-wifi/giga-wifi#web-server-ap-mode
 - 
 
 
