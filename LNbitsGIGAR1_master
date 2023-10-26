@@ -4,7 +4,7 @@
 #include <WiFiSSLClient.h>
 #include <WiFiServer.h>
 #include <WiFiUdp.h>
-#include <ArduinoJson.h>  // Přidat tuto knihovnu pro práci s JSON
+#include <ArduinoJson.h>
 
 const char* ssid = "ag";
 const char* password = "dekujizawifi";
