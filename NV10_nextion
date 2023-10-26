@@ -37,7 +37,7 @@ void bill(int banknoteValue) {
 
     swSerial.print(F("t0.txt=\"Celkem: "));
     swSerial.print(String(credit));
-    swSerial.print(F(" Sats\""));
+    swSerial.print(F(" Kc\""));
     swSerial.write(0xff);
     swSerial.write(0xff);
     swSerial.write(0xff);
@@ -66,7 +66,7 @@ void setup() {
   swSerial.begin(9600);
   swSerial.print(F("t0.txt=\"Ce: "));
   swSerial.print(F("0"));
-  swSerial.print(F(" Kč\""));
+  swSerial.print(F(" Kc\""));
   swSerial.write(0xff);
   swSerial.write(0xff);
   swSerial.write(0xff);
