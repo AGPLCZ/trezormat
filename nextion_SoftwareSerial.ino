@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 // nastavení čísel propojovacích pinů
-#define RX 6   // 6 Tx dislay
-#define TX 7   // 7 Rx display
+#define RX 6  // 6 Tx dislay
+#define TX 7  // 7 Rx display
 // vytvoření objektu swSerial z knihovny s nastavenými piny
 SoftwareSerial swSerial(RX, TX);
 int credit = 9;
@@ -23,8 +23,10 @@ void setup() {
 
 
 void loop() {
+    credit++;  // Zvýšení hodnoty credit o 1
+
   swSerial.print(F("t0.txt=\"Celkem: "));
-  swSerial.print(String(credit + 1));
+  swSerial.print(String(credit));
   swSerial.print(F(" Kc\""));
   swSerial.write(0xff);
   swSerial.write(0xff);
