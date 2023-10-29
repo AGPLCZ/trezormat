@@ -67,7 +67,7 @@ void loop() {
       Serial.println("Přijato do akceptoru 200 Kč");
       bill(200);
     } else if (byteIn == 3) {
-      Serial.println("Přijato do akceptoru 300 Kč");
+      Serial.println("Přijato do akceptoru 500 Kč");
       bill(500);
     }
   }
