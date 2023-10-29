@@ -5,9 +5,9 @@
 
 const char* ssid = "ag";
 const char* password = "dekujizawifi";
-const char* host = "wallet.paralelnipolis.cz";
+const char* host = "legend.lnbits.com";
 const int httpsPort = 443;
-const char* apiKey = "*********************************";
+const char* apiKey = "5f9940a3227d4df0904db50603e4d041";
 
 WiFiSSLClient client;
 
@@ -35,7 +35,7 @@ String createWithdrawLink() {
   doc["wait_time"] = 60;
   doc["is_unique"] = true;
   doc["webhook_url"] = "https://dobrodruzi.cz/withdraw/index.php";
-  doc["webhook_headers"] = "Content-Type: application/json";
+  doc["webhook_headers"] = "{\"Content-Type\": \"application/json\"}";
   doc["webhook_body"] = "{\"amount\": 100}";
   doc["custom_url"] = "https://dobrodruzi.cz/withdraw/poslano.php";
   
