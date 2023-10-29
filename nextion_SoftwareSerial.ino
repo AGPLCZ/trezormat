@@ -1,3 +1,6 @@
+// Nextion -> nový display pro můj projekt - Nextion 2,8" NX3224T028 TFT LCD displej
+// podobný projekt https://navody.dratek.cz/navody-k-produktum/lcd-displej-nextion-2.8.html 
+
 #include <SoftwareSerial.h>
 // nastavení čísel propojovacích pinů
 #define RX 6  // 6 Tx dislay
