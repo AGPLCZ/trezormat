@@ -24,6 +24,7 @@ Bleskosvod je automat, skrze který si můžete pořídit Bitcoin prostřednictv
 - https://docs.arduino.cc/tutorials/giga-r1-wifi/giga-wifi#web-server-ap-mode
 - https://nextion.tech/editor_guide/
 - https://nextion.tech/instruction-set/
+- https://forum.arduino.cc/t/cant-get-nextion-to-talk-to-arduino-mega-and-vice-versa-solved/671785/5
 - 
 
 
