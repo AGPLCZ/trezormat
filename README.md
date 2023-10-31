@@ -1,6 +1,11 @@
-# Trezormat
-Trezormat je automat, skrze který si můžete pořídit Bitcoin prostřednictvím Lightning Network (LN). Ačkoliv se podobá projektům jako Bleskomat či Fossa, byl vyvinut nezávisle, s nimi jsem se seznámil až po jeho dokončení. Trezormat je zaměřen na jednoduchost a přístupnost. Vzhledem k tomu, že nejsem profesionální programátor a jsem úplný začátečník, díky tomu je jeho replikace snadná a rychlá.
+# **Bleskosvod - Lightning Conductor  LC1**
+Bleskosvod je automat, skrze který si můžete pořídit Bitcoin prostřednictvím Lightning Network (LN). Ačkoliv se podobá projektům jako Bleskomat či Fossa, byl vyvinut zcela nezávisle. Bleskosvod je zaměřen na jednoduchost a přístupnost. Vzhledem k tomu, že jsem úplný začátečník v programování, díky tomu je replikace projektu snadná a rychlá.
 
+ #### Výhody projektu
+ - jednoduchost, lze rychle pochopit kód do 10 minut
+ - arduino UNO R3, ESP32, (Arduino Mega, Giga)
+ - snadná replikovatelnost
+ 
 > [!IMPORTANT]  
 > Projekt ještě nění dokončen! -> Zde je jen pár testovacích kódů pro jednotlivá zařízení, ještě to dávám celé dokupy. 
 
