@@ -9,6 +9,9 @@ Bleskosvod je automat, skrze který si můžete pořídit Bitcoin prostřednictv
 > [!IMPORTANT]  
 > Projekt ještě nění dokončen! -> Zde je jen pár testovacích kódů pro jednotlivá zařízení, ještě to dávám celé dokupy. 
 
+![acceptor](mince.webp)
+
+
 # HW
 - Nextion Intelligent, (NX4827P043-011C-Y, Enhanced NX4827K043) !minimum FLASH 32M
 - NV10-USB-plus
@@ -44,7 +47,6 @@ protokol POS
 ## Mincovník "acceptor-936" 
 
  Po vhození přednastavené částky se vypíše zpráva a může se například sepnout relé či načíst webová adresa - GET uloží honotu za pomocí PHP
-![acceptor](mince.webp)
 
 
 > [!NOTE]  
