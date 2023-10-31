@@ -9,10 +9,15 @@ Bleskosvod je automat, skrze který si můžete pořídit Bitcoin prostřednictv
 > [!IMPORTANT]  
 > Projekt ještě nění dokončen! -> Zde je jen pár testovacích kódů pro jednotlivá zařízení, ještě to dávám celé dokupy. 
 
+# HW
+- Nextion Intelligent, (NX4827P043-011C-Y, Enhanced NX4827K043) !minimum FLASH 32M
+- 
 
 # Externí návody
 - https://randomnerdtutorials.com/nextion-display-with-arduino-getting-started/
 - https://docs.arduino.cc/tutorials/giga-r1-wifi/giga-wifi#web-server-ap-mode
+- https://nextion.tech/editor_guide/
+- https://nextion.tech/instruction-set/
 - 
 
 
@@ -104,3 +109,14 @@ Výslednou částku vynásobte: **soucasnyZustatek * 5** = 280 cent
 
 ### Zdroje:
 https://docs.arduino.cc/tutorials/uno-r4-wifi/wifi-examples
+
+
+
+
+void loop() {
+  if(Serial1.available() > 0){
+    int incoming = Serial1.read();
+    Serial.println("Recieved: ");
+    Serial.println(incoming);
+  }
+}
