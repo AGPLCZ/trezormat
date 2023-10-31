@@ -1,0 +1,35 @@
+#define NoteAcceptor Serial2
+
+void setup() {
+  delay(1000);
+  Serial.begin(9600);
+  Serial.println("uz");
+  NoteAcceptor.begin(300, SERIAL_8N2);
+  pinMode(16, OUTPUT);
+  pinMode(17, INPUT_PULLUP);
+
+  NoteAcceptor.write(184);  //Acceptor enabled
+  NoteAcceptor.write(170);  //Enable serial escrow mode
+  NoteAcceptor.write(191);  // verifyAcceptor
+  delay(1000);
+   
+   // NoteAcceptor.write(173);  // Vrátit
+
+}
+
+void loop() {
+
+
+    byte byteIn = NoteAcceptor.read();
+
+     if (byteIn != 255){
+    Serial.print("Výstup: ");
+    Serial.println(byteIn);
+    }
+
+
+  if (byteIn == 2) {
+    Serial.println("Přijato do akceptoru 200 Kč");
+    Serial2.write(172);  // Přijmout
+  }
+}
