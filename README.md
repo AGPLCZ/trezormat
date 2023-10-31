@@ -11,7 +11,9 @@ Bleskosvod je automat, skrze který si můžete pořídit Bitcoin prostřednictv
 
 # HW
 - Nextion Intelligent, (NX4827P043-011C-Y, Enhanced NX4827K043) !minimum FLASH 32M
-- 
+- NV10-USB-plus
+- acceptor-936
+- arduino Uno R1 / Giga
 
 # Externí návody
 - https://randomnerdtutorials.com/nextion-display-with-arduino-getting-started/
@@ -19,7 +21,6 @@ Bleskosvod je automat, skrze který si můžete pořídit Bitcoin prostřednictv
 - https://nextion.tech/editor_guide/
 - https://nextion.tech/instruction-set/
 - 
-
 
 
 ![acceptor](trezormat.jpeg)
