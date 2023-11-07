@@ -8,6 +8,8 @@
 // vytvoření objektu swSerial z knihovny s nastavenými piny
 SoftwareSerial swSerial(RX, TX);
 int credit = 9;
+String lnUrl = "LN url adresa";
+
 
 void setup() {
   Serial.begin(9600);
@@ -21,6 +23,20 @@ void setup() {
   swSerial.write(0xff);
   swSerial.write(0xff);
   swSerial.write(0xff);
+
+
+
+
+    swSerial.print("qr0.txt=");  // Nastavení příkazu pro aktualizaci QR kódu
+    swSerial.print('"');         // Otevření uvozovek
+    swSerial.print(lnUrl);       // Váš text, který má být zakódován do QR kódu
+    swSerial.print('"');         // Uzavření uvozovek
+    swSerial.write(0xff);
+    swSerial.write(0xff);
+    swSerial.write(0xff);  // Tři bajty 0xFF signalizují konec příkazu
+
+
+  
 }
 
 
@@ -34,4 +50,81 @@ void loop() {
   swSerial.write(0xff);
   swSerial.write(0xff);
   swSerial.write(0xff);
+
 }
+
+
+
+
+// new
+void setup() {
+  Serial.begin(9600);
+    pinMode(13  , OUTPUT);
+}
+
+void loop() {
+  digitalWrite(13, HIGH);  
+  Serial.print("qr0.txt=");
+  Serial.print('"');
+  Serial.print("This is demo for QR code!!!");
+  Serial.print('"');
+  Serial.write(0xff);
+  Serial.write(0xff);
+  Serial.write(0xff);
+  delay(2000);
+
+  digitalWrite(13, LOW);   
+  Serial.print("qr0.txt=");
+  Serial.print('"');
+  Serial.print("viola, got change after 2sec.");
+  Serial.print('"');
+  Serial.write(0xff);
+  Serial.write(0xff);
+  Serial.write(0xff);
+  delay(2000);
+
+  digitalWrite(13, HIGH);   
+  Serial.print("qr0.txt=");
+  Serial.print('"');
+  Serial.print("ohh...yess...It is working....");
+  Serial.print('"');
+  Serial.write(0xff);
+  Serial.write(0xff);
+  Serial.write(0xff);
+  delay(2000);
+
+  digitalWrite(13, LOW);   
+  Serial.print("qr0.txt=");
+  Serial.print('"');
+  Serial.print("abcdefghijklmnopqrstuvwxyz");
+  Serial.print('"');
+  Serial.write(0xff);
+  Serial.write(0xff);
+  Serial.write(0xff);
+  delay(2000);
+
+  digitalWrite(13, HIGH); 
+  Serial.print("qr0.txt=");
+  Serial.print('"');
+  Serial.print("!@#$%^&*()_+=-");
+  Serial.print('"');
+  Serial.write(0xff);
+  Serial.write(0xff);
+  Serial.write(0xff);
+  delay(2000);
+
+  digitalWrite(13, LOW); 
+  Serial.print("qr0.txt=");
+  Serial.print('"');
+  Serial.print("1234567890");
+  Serial.print('"');
+  Serial.write(0xff);
+  Serial.write(0xff);
+  Serial.write(0xff);
+  delay(2000);
+
+  
+  
+   
+}
+
