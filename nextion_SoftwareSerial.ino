@@ -51,6 +51,28 @@ void loop() {
   swSerial.write(0xff);
   swSerial.write(0xff);
 
+
+
+  if (swSerial.available()) { // zkontrolujte, zda jsou dostupná data ke čtení
+    String message = swSerial.readStringUntil('\xFF'); // čtěte data až do 0xFF (konec zprávy)
+    if (message.indexOf("b0") >= 0) { // zkontrolujte, zda zpráva obsahuje "TEST"
+      Serial.println("test"); // vypíše "test" do sériového monitoru
+    }
+  }
+
+
+
+ if (swSerial.available()) { // zkontrolujte, zda jsou dostupná data ke čtení
+    String message = swSerial.readStringUntil('\xFF'); // čtěte data až do 0xFF (konec zprávy)
+    int testIndex = message.indexOf("TEST"); // najděte index "TEST" v přijaté zprávě
+    if (testIndex >= 0) { // zkontrolujte, zda zpráva obsahuje "TEST"
+      // Zde můžete přidat další logiku, pokud potřebujete zpracovat data před nebo za "TEST"
+      Serial.println("test"); // vypíše "test" do sériového monitoru
+    }
+  }
+
+  
+
 }
 
 
