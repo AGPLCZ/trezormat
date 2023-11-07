@@ -112,14 +112,3 @@ Výslednou částku vynásobte: **soucasnyZustatek * 5** = 280 cent
 
 ### Zdroje:
 https://docs.arduino.cc/tutorials/uno-r4-wifi/wifi-examples
-
-
-
-
-void loop() {
-  if(Serial1.available() > 0){
-    int incoming = Serial1.read();
-    Serial.println("Recieved: ");
-    Serial.println(incoming);
-  }
-}
