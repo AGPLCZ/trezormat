@@ -1,0 +1,19 @@
+#include <Arduino.h>
+
+void setup() {
+  Serial.begin(9600);
+  Serial2.begin(9600);
+  delay(2000);
+  Serial.println("start");
+  // Odešleme zkušební zprávu na Serial2
+  Serial2.println("Ahoj světe!");
+}
+
+void loop() {
+  Serial2.println("Ahoj světe!");
+  // Čekáme na odpověď z Serial2
+  if (Serial2.available()) {
+    // Zobrazíme odpověď na Serial
+    Serial.println(Serial2.readString());
+  }
+}
