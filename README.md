@@ -112,3 +112,9 @@ Výslednou částku vynásobte: **soucasnyZustatek * 5** = 280 cent
 
 ### Zdroje:
 https://docs.arduino.cc/tutorials/uno-r4-wifi/wifi-examples
+
+
+###  Nextion Intelligent
+print "b0"
+page page1
+
