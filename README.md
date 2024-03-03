@@ -1,5 +1,5 @@
-# **Bleskosvod - Lightning Conductor  LC1**
-Bleskosvod je automat, skrze který si můžete pořídit Bitcoin prostřednictvím Lightning Network (LN). Ačkoliv se podobá projektům jako Bleskomat či Fossa, byl vyvinut zcela nezávisle. Bleskosvod je zaměřen na jednoduchost a přístupnost. Vzhledem k tomu, že jsem úplný začátečník v programování, díky tomu je replikace projektu snadná a rychlá.
+# **VexlATM**
+je automat, skrze který si můžete pořídit Bitcoin prostřednictvím Lightning Network (LN). Ačkoliv se podobá projektům jako Bleskomat či Fossa, byl vyvinut zcela nezávisle. Bleskosvod je zaměřen na jednoduchost a přístupnost. Vzhledem k tomu, že jsem úplný začátečník v programování, díky tomu je replikace projektu snadná a rychlá.
 
  #### Výhody projektu
  - jednoduchost, lze rychle pochopit kód do 10 minut
