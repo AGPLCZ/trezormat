@@ -1,0 +1,9 @@
+#!/bin/bash
+# Nastavení správného displeje (obvykle :0, pokud používáte hlavní obrazovku)
+export DISPLAY=:0
+# Spuštění hry pomocí Steam. Ujistěte se, že uvedete úplnou cestu ke spustitelnému souboru Steam, pokud je potřeba.
+sudo -u ag /snap/bin/steam steam://rungameid/386940
+
+echo "Spouštím hru - čas: $(date)" >> /tmp/start_game.log
+
+
