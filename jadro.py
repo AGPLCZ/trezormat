@@ -127,6 +127,10 @@ from flask_cors import CORS
 # pro herní automaty, dary, nebo interaktivní projekty bez rizika chybného účtování.
 
 
+# https://www.coinoperatorshop.com/de/ obchood kde koupi nV10
+# https://www.coinoperatorshop.com/de/geldverarbeitung/Banknoten-pruefen-zaehlen-ausgeben/Banknotenleser/Leser/Banknotenpruefer-NV10-USB.html
+# https://www.coinoperatorshop.com/de/geldverarbeitung/Banknoten-pruefen-zaehlen-ausgeben/Banknotenleser/Interface---Kabel-1650/IF17-Interface-Converter-IF-17.html
+
 
 
 ###############################
